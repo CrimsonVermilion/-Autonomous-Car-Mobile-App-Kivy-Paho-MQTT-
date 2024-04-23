@@ -23,8 +23,45 @@ WindowManager:
         size: root.width, root.height
 
         GridLayout:
-            cols:2
+            rows:4
+            cols:4
             size: root.width, root.height
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
 
             Label:
                 text: "Username: "
@@ -44,6 +81,20 @@ WindowManager:
                 multiline: False
 
             Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size            
+            Label:
                 text: "Password: "
                 halign: 'left'
                 valign: 'middle'
@@ -57,12 +108,79 @@ WindowManager:
             TextInput:
                 id: passw
                 multiline: False
-
-        Button:
-            id: btn
-            text: "Login"
-            on_release:
-                app.root.current = "second" if passw.text == "Gdn" else "main" if namee.text == "Gamd" else "main"
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+        GridLayout:
+            rows:3
+            cols:3
+            size: root.width, root.height
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Button:
+                id: btn
+                text: "Login"
+                on_release:
+                    app.root.current = "second" if passw.text == "Gdn" else "main" if namee.text == "Gamd" else "main"
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+        
 
 
 

@@ -1,0 +1,131 @@
+<Button>:
+    font_size: 30
+    background_color: 0.235, 0.478, 0.537, 1
+
+<TextInput>
+    background_color: 0.180, 0.278, 0.337, 1
+
+<Label>
+    font_size: 30
+
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+            size: root.width, root.height
+
+            Label:
+                text: "Username: "
+                halign: 'left'
+                valign: 'middle'
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+
+
+            TextInput:
+                id: namee
+                multiline: False
+
+            Label:
+                text: "Password: "
+                halign: 'left'
+                valign: 'middle'
+                canvas.before:
+                    Color:
+                        rgb: 0.086, 0.149, 0.180
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            TextInput:
+                id: passw
+                multiline: False
+
+        Button:
+            id: btn
+            text: "Login"
+            on_release:
+                app.root.current = "second" if passw.text == "Gdn" else "main" if namee.text == "Gamd" else "main"
+
+
+
+<SecondWindow>:
+    name: "second"
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Button:
+            text: "Request Robot"
+            on_release:
+                app.root.current = "third"
+
+
+
+
+<ThirdWindow>
+    name: "third"
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        Button:
+            text: "Intensive Care Unit"
+            on_release:
+                app.root.current = "fourth"
+
+        Button:
+            text: "Medical-Surgical"
+            on_release:
+                app.root.current = "fourth"
+
+        Button:
+            text: "Pharmacy"
+            on_release:
+                app.root.current = "fourth"
+
+
+<FourthWindow>
+    name: "fourth"
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (1, 1)
+        canvas:
+            Color:
+                rgba: 0, 0, 1, 1
+            Ellipse:
+                id: dot1
+                size: (20, 20)
+                pos: self.parent.center_x - 100, self.parent.center_y
+            Ellipse:
+                id: dot2
+                size: (20, 20)
+                pos: self.parent.center_x - 50, self.parent.center_y
+            Ellipse:
+                id: dot3
+                size: (20, 20)
+                pos: self.parent.center_x, self.parent.center_y
+            Ellipse:
+                id: dot4
+                size: (20, 20)
+                pos: self.parent.center_x + 50, self.parent.center_y
+            Ellipse:
+                id: dot5
+                size: (20, 20)
+                pos: self.parent.center_x + 100, self.parent.center_y

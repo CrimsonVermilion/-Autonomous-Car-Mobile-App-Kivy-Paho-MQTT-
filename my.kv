@@ -20,7 +20,7 @@ WindowManager:
 
     GridLayout:
         cols:1
-        size: root.width, root.height
+        size: root.width , root.height
 
         GridLayout:
             rows:4
@@ -152,6 +152,11 @@ WindowManager:
                 text: "Login"
                 on_release:
                     app.root.current = "second" if passw.text == "Gdn" else "main" if namee.text == "Gamd" else "main"
+                Image:
+                    source: 'images/login.png'
+                    center_x: self.parent.center_x -100
+                    center_y: self.parent.center_y 
+    
             Label:
                 canvas.before:
                     Color:

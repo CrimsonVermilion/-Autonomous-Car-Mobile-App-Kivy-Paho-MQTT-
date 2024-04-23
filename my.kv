@@ -17,175 +17,61 @@ WindowManager:
 
 <MainWindow>:
     name: "main"
+    Image:
+        source: "C:/Users/kirol/OneDrive/Desktop/green-neon-lined-pattern-dark-social-story-background-vector/rm251-mind-08-f.jpg"
 
-    GridLayout:
-        cols:1
-        size: root.width , root.height
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
 
-        GridLayout:
-            rows:4
-            cols:4
-            size: root.width, root.height
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
+        Label:
+            text: 'Welcome'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
 
             Label:
-                text: "Username: "
+                text: 'Username'
+                font_size: 20
                 halign: 'left'
-                valign: 'middle'
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-
-
+                text_size: root.width-20, 20
 
             TextInput:
-                id: namee
-                multiline: False
+                id: login
+                multiline:False
+                font_size: 28
+                size_hint_x: 1
+                halign: 'center'
 
+        BoxLayout:
+            orientation: 'vertical'
             Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size            
-            Label:
-                text: "Password: "
+                text: 'Password'
                 halign: 'left'
-                valign: 'middle'
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
+                font_size: 18
+                text_size: root.width-20, 20
+                
 
             TextInput:
-                id: passw
-                multiline: False
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-        GridLayout:
-            rows:3
-            cols:3
-            size: root.width, root.height
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
+                id: password
+                multiline:False
+                password:True
+                font_size: 28
+                size_hint_x: 1
+                halign: 'center'
+        BoxLayout:
+            size_hint_x: 0.5
+            size_hint_y: 0.5
+            alignment: 'center'
+
             Button:
-                id: btn
-                text: "Login"
-                on_release:
-                    app.root.current = "second" if passw.text == "Gdn" else "main" if namee.text == "Gamd" else "main"
-                Image:
-                    source: 'images/login.png'
-                    center_x: self.parent.center_x -100
-                    center_y: self.parent.center_y 
-    
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            Label:
-                canvas.before:
-                    Color:
-                        rgb: 0.086, 0.149, 0.180
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-        
+                text: 'Login'
+                font_size: 24
+                alignment: 'center'
+                on_press: root.do_login(login.text, password.text)
 
 
 

@@ -1,6 +1,6 @@
-<Button>:
-    font_size: 30
-    background_color: 0.235, 0.478, 0.537, 1
+# <Button>:
+#     font_size: 10
+#     background_color: 0.235, 0.478, 0.537, 1
 
 <TextInput>
     background_color: 0.180, 0.278, 0.337, 1
@@ -40,7 +40,7 @@ WindowManager:
                 text_size: root.width-20, 20
 
             TextInput:
-                id: login
+                id: user_input
                 multiline:False
                 font_size: 28
                 size_hint_x: 1
@@ -56,35 +56,73 @@ WindowManager:
                 
 
             TextInput:
-                id: password
+                id: passw
                 multiline:False
                 password:True
                 font_size: 28
                 size_hint_x: 1
                 halign: 'center'
         BoxLayout:
-            size_hint_x: 0.5
+            orientation: 'horizontal'
+            padding: [0,0,0,0]
+            size_hint_x: 1
             size_hint_y: 0.5
             alignment: 'center'
 
             Button:
                 text: 'Login'
                 font_size: 24
-                alignment: 'center'
-                on_press: root.do_login(login.text, password.text)
+                background_color: 0.235, 0.478, 0.537, 1
+                halign: 'center'
+                on_release:
+                    app.root.current = "second" #if passw.text == "Gdn" else "main" if user_text.text == "Gamd" else "main"
 
 
 
 <SecondWindow>:
     name: "second"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
 
-    GridLayout:
-        cols:1
-        size: root.width, root.height
-        Button:
-            text: "Request Robot"
-            on_release:
-                app.root.current = "third"
+    BoxLayout
+        id: room_layout
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'Please, Write room number'
+                font_size: 25
+                halign: 'center'
+                # text_size: root.width-20, 20
+
+            TextInput:
+                id: room
+                multiline:False
+                hint_text: 'Type room number'
+                font_size: 28
+                size_hint_x: 1
+                size_hint_y: 0.2
+                halign: 'center'
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [100,0,100,0]
+            size_hint_x: 1
+            size_hint_y: 0.5
+            alignment: 'center'
+
+            Button:
+                text: 'Login'
+                font_size: 24
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x: 0.5
+                size_hint_y: 0.5
+                on_release:
+                    app.root.current = "third"
 
 
 

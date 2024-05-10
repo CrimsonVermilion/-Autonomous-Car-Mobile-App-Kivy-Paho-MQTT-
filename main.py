@@ -12,6 +12,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.boxlayout import BoxLayout
 from kivy.animation import Animation
 from kivy.clock import Clock
+from kivy.properties import StringProperty
 
 
 class MainWindow(Screen):

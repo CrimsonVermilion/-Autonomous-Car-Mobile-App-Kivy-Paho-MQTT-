@@ -62,6 +62,7 @@ WindowManager:
                 font_size: 28
                 size_hint_x: 1
                 halign: 'center'
+
         BoxLayout:
             orientation: 'horizontal'
             padding: [0,0,0,0]
@@ -94,30 +95,48 @@ WindowManager:
             orientation: 'vertical'
 
             Label:
-                text: 'Please, Write room number'
-                font_size: 25
+                text: 'Please, Write first destination'
+                font_size: 20
                 halign: 'center'
-                # text_size: root.width-20, 20
+                #text_size: root.width-20, 20
 
             TextInput:
-                id: room
+                id: first
                 multiline:False
                 hint_text: 'Type room number'
                 font_size: 28
                 size_hint_x: 1
-                size_hint_y: 0.2
+                size_hint_y: 0.5
+                halign: 'center'
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Please, Write second destination'
+                halign: 'center'
+                font_size: 20
+                #text_size: root.width-20, 20
+                
+
+            TextInput:
+                id: other
+                multiline:False
+                hint_text: 'Type room number'
+                font_size: 28
+                size_hint_x: 1
+                size_hint_y: 0.5
                 halign: 'center'
         
         BoxLayout:
             orientation: 'horizontal'
             padding: [100,0,100,0]
             size_hint_x: 1
-            size_hint_y: 0.5
+            size_hint_y: 0.7
             alignment: 'center'
 
             Button:
-                text: 'Login'
-                font_size: 24
+                text: 'Request Robot'
+                font_size: 22
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x: 0.5
                 size_hint_y: 0.5

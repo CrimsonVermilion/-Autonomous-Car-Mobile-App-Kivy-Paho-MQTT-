@@ -37,7 +37,8 @@ payload_data = {
                 "dropoff_y": 4
                 }
 print(payload_data)
-mqtt_client = mqtt_client.Client('publish-{}'.format(random.randint(0, 1000)))
+client_id = 'publish12-{}'.format(random.randint(0, 1000))
+mqtt_client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION1, client_id)
 
 
 class MainWindow(Screen):

@@ -84,6 +84,8 @@ WindowManager:
 
 <SecondWindow>:
     name: "second"
+    dist1: dist1
+    dist2: dist2
     Image:
         source: "images/rm251-mind-08-f.jpg"
         fit_mode: "fill"
@@ -107,7 +109,7 @@ WindowManager:
                 #text_size: root.width-20, 20
 
             TextInput:
-                id: first
+                id: dist1
                 multiline:False
                 hint_text: 'Type room number'
                 font_size: 28
@@ -125,7 +127,7 @@ WindowManager:
                 
 
             TextInput:
-                id: other
+                id: dist2
                 multiline:False
                 hint_text: 'Type room number'
                 font_size: 28
@@ -146,6 +148,7 @@ WindowManager:
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x: 0.5
                 size_hint_y: 0.5
+                on_press: root.btn()
                 on_release:
                     app.root.current = "fourth"
 

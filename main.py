@@ -17,6 +17,13 @@ import json
 import random
 from paho.mqtt import client as mqtt_client
 
+# Define the MQTT broker address and port
+broker = 'broker.emqx.io'
+port = 1883
+mqtt_topic="mqtt/tasks_recieved"
+
+#matrix defined to put the Xdist1 ydist1 xdist2 ydist2
+
 dist_matrix = [[1,0,0,0,0,0],
                [2,0,0,0,0,0],
                [3,0,0,0,0,0],
@@ -40,6 +47,26 @@ print(payload_data)
 client_id = 'publish12-{}'.format(random.randint(0, 1000))
 mqtt_client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION1, client_id)
 
+# Connect to the MQTT broker
+def connect_mqtt():
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print("Connected to MQTT Broker!")
+        else:
+            print("Failed to connect, return code {}".format(rc))
+
+    mqtt_client.on_connect = on_connect
+    mqtt_client.connect(broker, port)
+
+
+# Publish the payload on the outgoing topic
+def publish_mqtt(mqtt_topic, msg):
+    result = mqtt_client.publish(mqtt_topic, msg)
+    status = result[0]
+    if status == 0:
+        print("Sent message to topic {}".format(mqtt_topic))
+    else:
+        print("Failed to send message to topic {}".format(mqtt_topic))   
 
 class MainWindow(Screen):
     pass
@@ -66,7 +93,9 @@ class SecondWindow(Screen):
                 payload_data["dropoff_y"] = str(dist_matrix[i][2])
                 
         print(payload_data)
-        payload_json = json.dumps(payload_data)        
+        payload_json = json.dumps(payload_data)
+        client=connect_mqtt()
+        publish_mqtt(mqtt_topic, payload_json)        
         print('we exited the for loop')
        
 

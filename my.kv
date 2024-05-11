@@ -176,12 +176,16 @@ WindowManager:
 <FourthWindow>
     name: "fourth"
     BoxLayout:
+        padding: [10,100,10,100]
         orientation: 'vertical'
         Video:
             id: video
             source: 'images/runnnnnn.mp4'
             options: {'eos': 'loop'}
             on_kv_post: self.state = 'play'
+        Label:
+            text: 'Searching for optimal ROUTE'
+
 
     # BoxLayout:
     #     orientation: 'vertical'

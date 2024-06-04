@@ -13,6 +13,11 @@ WindowManager:
     SecondWindow:
     ThirdWindow:
     FourthWindow:
+    FifthWindow:
+    SixthWindow:
+    SeventhWindow:
+    EighthWindow:
+    NinthWindow:
 
 
 <MainWindow>:
@@ -89,7 +94,7 @@ WindowManager:
         fit_mode: "fill"
         
 
-    BoxLayout
+    BoxLayout:
         id: room_layout
         orientation: 'vertical'
         padding: [10,50,10,50]
@@ -175,6 +180,7 @@ WindowManager:
 
 <FourthWindow>
     name: "fourth"
+    on_enter: root.start_timer()
     BoxLayout:
         padding: [10,100,10,100]
         orientation: 'vertical'
@@ -185,6 +191,114 @@ WindowManager:
             on_kv_post: self.state = 'play'
         Label:
             text: 'Searching for optimal ROUTE'
+
+
+<FifthWindow>
+    name: "fifth"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
+    BoxLayout:
+        padding: [10,200,10,200]
+        orientation: 'vertical'
+        Label:
+            text: 'The Robot Arrived'
+        BoxLayout:
+            Button:
+                text: 'Open Samples Container'
+                font_size: 22
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x:
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "sixth"
+    
+
+<SixthWindow>
+    name: "sixth"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
+    BoxLayout:
+        padding: [10,200,10,200]
+        orientation: 'vertical'
+        Label:
+            text: 'Waiting for you to put the samples'
+            font_size: 22
+        BoxLayout:
+            Button:
+                text: 'Close the container'
+                font_size: 22
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x:
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "seventh"
+
+<SeventhWindow>
+    name: "seventh"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
+    BoxLayout:
+        padding: [10, 200, 10, 200]
+        orientation: 'vertical'
+        Label:
+            text: 'Ready to go to the next destination?'
+            font_size: 22
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                text: 'Yes'
+                font_size: 22
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "eighth"
+            Button:
+                text: 'No'
+                font_size: 22
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "sixth"
+
+<EighthWindow>
+    name: "eighth"
+    on_enter: root.start_timer()
+    BoxLayout:
+        padding: [10,100,10,100]
+        orientation: 'vertical'
+        Video:
+            id: video
+            source: 'images/runnnnnn.mp4'
+            options: {'eos': 'loop'}
+            on_kv_post: self.state = 'play'
+        Label:
+            text: 'Delivering samples to the target destination'
+            font_size: 22
+
+<NinthWindow>
+    name: "ninth"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
+    BoxLayout:
+        padding: [10, 200, 10, 200]
+        orientation: 'vertical'
+        Label:
+            text: 'The Robot arrived successfully'
+            font_size: 22
+        BoxLayout:
+            Button:
+                text: 'Return to main menu'
+                font_size: 22
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x:
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "second"
+
 
 
     # BoxLayout:

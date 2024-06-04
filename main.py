@@ -13,6 +13,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.animation import Animation
 from kivy.clock import Clock
 from kivy.properties import StringProperty
+from os import listdir
+
 
 
 class MainWindow(Screen):
@@ -28,6 +30,36 @@ class ThirdWindow(Screen):
 
 
 class FourthWindow(Screen):
+    def start_timer(self):
+        Clock.schedule_once(self.change_to_fifth, 2)
+
+    def change_to_fifth(self, dt):
+        self.manager.current = 'fifth'
+    pass
+
+
+class FifthWindow(Screen):
+    pass
+
+
+class SixthWindow(Screen):
+    pass
+
+
+class SeventhWindow(Screen):
+    pass
+
+
+class EighthWindow(Screen):
+    def start_timer(self):
+        Clock.schedule_once(self.change_to_ninth, 2)
+
+    def change_to_ninth(self, dt):
+        self.manager.current = 'ninth'
+    pass
+
+
+class NinthWindow(Screen):
     pass
 
 

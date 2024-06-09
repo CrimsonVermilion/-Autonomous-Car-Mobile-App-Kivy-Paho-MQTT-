@@ -153,6 +153,27 @@ kv = Builder.load_file("my.kv")
 
 
 class MyApp(App):
+    
+    # Connect to the MQTT broker
+    def connect_mqtt():
+        def on_connect(client, userdata, flags, rc):
+            if rc == 0:
+                print("Connected to MQTT Broker!")
+            else:
+                print("Failed to connect, return code {}".format(rc))
+
+        mqtt_client.on_connect = on_connect
+        mqtt_client.connect(broker, port)
+        
+    # Publish the payload on the outgoing topic
+    def publish_mqtt(mqtt_topic, msg):
+        result = mqtt_client.publish(mqtt_topic, msg)
+        status = result[0]
+        if status == 0:
+            print("Sent message to topic {}".format(mqtt_topic))
+        else:
+            print("Failed to send message to topic {}".format(mqtt_topic))   
+    
     def build(self):
         return kv
 

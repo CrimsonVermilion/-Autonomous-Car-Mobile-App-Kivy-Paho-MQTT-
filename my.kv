@@ -194,14 +194,19 @@ WindowManager:
     on_enter: root.start_timer()
     BoxLayout:
         orientation: 'vertical'
+        halign: 'center'
         padding: [10, 10, 10, 10]
+        
         BoxLayout:
             size_hint_y: 1  
+            halign: 'center'
         BoxLayout:
             size_hint_y: None
             size_hint_x: None
             height: dp(200)  
+            halign: 'center'
             BoxLayout:
+                halign: 'center'
                 size_hint: (None, None)
                 size: dp(150), dp(150)  
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}  
@@ -209,12 +214,14 @@ WindowManager:
                     source: "images/pngegg.png"
                     allow_stretch: True
                     keep_ratio: True
+                    halign: 'center'
         Label:
             text: 'Searching for optimal ROUTE'
             font_size: dp(25)
             size_hint_y: None  
             height: dp(50)
         BoxLayout:
+            halign: 'center'
             size_hint_y: 1  
 
 

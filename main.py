@@ -34,7 +34,7 @@ class FourthWindow(Screen):
         Clock.schedule_once(self.change_to_fifth, 2)
 
     def change_to_fifth(self, dt):
-        self.manager.current = 'fifth'
+        self.manager.current = 'seventh'
     pass
 
 

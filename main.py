@@ -86,11 +86,17 @@ class SecondWindow(Screen):
                 print('we are in deep IF')
                 payload_data["pickup_x"] = str(dist_matrix[i][1])
                 payload_data["pickup_y"] = str(dist_matrix[i][2])
+            else:
+                self.manager.current = 'ninth'
+                pass
 
             if (dist_matrix[i][0] == distination2):
                 print('we are in deep IF')
                 payload_data["dropoff_x"] = str(dist_matrix[i][1])
                 payload_data["dropoff_y"] = str(dist_matrix[i][2])
+            else:
+                self.manager.current = 'ninth'
+                pass
                 
         print(payload_data)
         payload_json = json.dumps(payload_data)

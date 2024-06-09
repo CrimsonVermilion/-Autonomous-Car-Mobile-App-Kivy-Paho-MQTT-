@@ -59,6 +59,9 @@ def connect_mqtt():
     mqtt_client.connect(broker, port)
 
 
+
+
+
 # Publish the payload on the outgoing topic
 def publish_mqtt(mqtt_topic, msg):
     result = mqtt_client.publish(mqtt_topic, msg)
@@ -76,34 +79,41 @@ class MainWindow(Screen):
 class SecondWindow(Screen):
     dist1 = ObjectProperty(None)
     dist2 = ObjectProperty(None)
-    
+   
     def btn(self):
         print("button is pressed")
+        d1 = 0
+        d2 = 0
         print(self.dist1.text , self.dist2.text)
         distination1 = float(self.dist1.text)
         distination2 = float(self.dist2.text)
         for i in range(11):
             if (dist_matrix[i][0] == distination1):
-                print('we are in deep IF')
+                print('you are right')
                 payload_data["pickup_x"] = str(dist_matrix[i][1])
                 payload_data["pickup_y"] = str(dist_matrix[i][2])
-            else:
-                self.manager.current = 'ninth'
-                pass
+                d1 = 1  
 
             if (dist_matrix[i][0] == distination2):
-                print('we are in deep IF')
+                print('you are right')
                 payload_data["dropoff_x"] = str(dist_matrix[i][1])
                 payload_data["dropoff_y"] = str(dist_matrix[i][2])
-            else:
-                self.manager.current = 'ninth'
-                pass
-                
-        print(payload_data)
-        payload_json = json.dumps(payload_data)
-        client= connect_mqtt()
-        publish_mqtt(mqtt_topic, payload_json)        
-        print('we exited the for loop')
+                d2 = 1
+        
+                 
+        print('we are out of deep IF')      
+        print(d1)
+        print(d2)    
+        if( d1 == 1 ):
+            print(payload_data)
+            payload_json = json.dumps(payload_data)
+            client= connect_mqtt()
+            publish_mqtt(mqtt_topic, payload_json)        
+            print('we exited the for loop')
+            self.manager.current = 'fourth'
+        else:
+            print('you are wrong')
+            self.manager.current = 'wrong'
        
 
 
@@ -147,7 +157,12 @@ class NinthWindow(Screen):
 
 
 class InfoWindow(Screen):
+    per1 = ObjectProperty(None)
+    per2 = ObjectProperty(None)
     pass
+            
+        
+
 
 
 class WrongdisWindow(Screen):
@@ -162,8 +177,7 @@ kv = Builder.load_file("my.kv")
 
 
 class MyApp(App):
-    
-    
+
     def build(self):
         return kv
 

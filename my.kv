@@ -97,6 +97,8 @@ WindowManager:
 
 <InfoWindow>
     name: "info"
+    per1: per1
+    per2: per2
     Image:
         source: "images/rm251-mind-08-f.jpg"
         fit_mode: "fill"
@@ -125,13 +127,15 @@ WindowManager:
             Image:
                 source: "images/—Pngtree—vector full battery icon_3773575.png"
             Label:
-                text: 'Battery 1'
+                id: per1
+                text: '60 %'
                 font_size: dp(20)
             Image:
                 source: "images/—Pngtree—vector full battery icon_3773575.png"
                     
             Label:
-                text: 'Battery 2'
+                id: per2
+                text: '90 %'
                 font_size: dp(20)
         BoxLayout:
             orientation: 'horizontal'
@@ -223,7 +227,7 @@ WindowManager:
                 size_hint_y: 0.5
                 on_press: root.btn()
                 on_release:
-                    app.root.current = "fourth"
+                    #app.root.current = "fourth"
 
 <WrongdisWindow>
     name: "wrong"

@@ -18,6 +18,8 @@ WindowManager:
     SeventhWindow:
     EighthWindow:
     NinthWindow:
+    InfoWindow:
+    WrongdisWindow:
 
 
 <MainWindow>:
@@ -30,7 +32,7 @@ WindowManager:
     BoxLayout:
         id: login_layout
         orientation: 'vertical'
-        padding: [10,50,10,100]
+        padding: [10,50,10,120]
         spacing: 50
         allow_stretch: True
         size_hint_x: 1
@@ -91,9 +93,67 @@ WindowManager:
                 size_hint_x: 0.5
                 size_hint_y: 0.5
                 on_release:
-                    app.root.current = "second" #if passw.text == "Gdn" else "main" if user_text.text == "Gamd" else "main"
+                    app.root.current = "info" #if passw.text == "Gdn" else "main" if user_text.text == "Gamd" else "main"
 
+<InfoWindow>
+    name: "info"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10,0,10,200]
+        spacing: 50
+        allow_stretch: True
+        size_hint_x: 1
+        Label:
+            text: 'Robots Info'
+            font_size: dp(40)
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'Robot 1'
+                    font_size: dp(20)
+                    
+                Label:
+                    text: 'Robot 2'
+                    font_size: dp(20)
+        BoxLayout:
+            orientation: 'horizontal'
+            Image:
+                source: "images/—Pngtree—vector full battery icon_3773575.png"
+            Label:
+                text: 'Battery 1'
+                font_size: dp(20)
+            Image:
+                source: "images/—Pngtree—vector full battery icon_3773575.png"
+                    
+            Label:
+                text: 'Battery 2'
+                font_size: dp(20)
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [100,0,100,0]
+            size_hint_x: 1
+            size_hint_y: 0.4
+            alignment: 'center'
 
+            Button:
+                text: 'Request Robot'
+                font_size: dp(28)
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x: 0.5
+                size_hint_y: 0.5
+                #on_press: root.btn()
+                on_release:
+                    app.root.current = "second"
+        
+                
+        
+
+                
 
 <SecondWindow>:
     name: "second"
@@ -165,6 +225,40 @@ WindowManager:
                 on_release:
                     app.root.current = "fourth"
 
+<WrongdisWindow>
+    name: "wrong"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
+    BoxLayout:
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,200]
+        spacing: 50
+        allow_stretch: True
+        size_hint_x: 1
+
+        Label:
+            text: 'There is no rooms with this numbers'
+            font_size: dp(22)
+        Label:
+            text: 'Please enter rooms between 1 to 10'
+            font_size: dp(22)
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [100,0,100,0]
+            size_hint_x: 1
+            size_hint_y: 0.4
+            alignment: 'center'
+            Button:
+                text: 'Try again'
+                font_size: dp(28)
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x: 0.5
+                size_hint_y: 0.5
+                #on_press: root.btn()
+                on_release:
+                    app.root.current = "second"
 
 
 
@@ -300,7 +394,7 @@ WindowManager:
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_y: 0.6
                 on_release:
-                    app.root.current = "sixth"
+                    app.root.current = "third"
 
 <EighthWindow>
     name: "eighth"

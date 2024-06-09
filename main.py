@@ -146,6 +146,14 @@ class NinthWindow(Screen):
     pass
 
 
+class InfoWindow(Screen):
+    pass
+
+
+class WrongdisWindow(Screen):
+    pass
+
+
 class WindowManager(ScreenManager):
     pass
 

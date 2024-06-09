@@ -63,6 +63,10 @@ class NinthWindow(Screen):
     pass
 
 
+class InfoWindow(Screen):
+    pass
+
+
 class WindowManager(ScreenManager):
     pass
 

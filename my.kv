@@ -97,12 +97,14 @@ WindowManager:
 
 <InfoWindow>
     name: "info"
+    per1: per1
+    per2: per2
     Image:
         source: "images/rm251-mind-08-f.jpg"
         fit_mode: "fill"
     BoxLayout:
         orientation: 'vertical'
-        padding: [10,0,10,200]
+        padding: [50,0,50,200]
         spacing: 50
         allow_stretch: True
         size_hint_x: 1
@@ -123,19 +125,20 @@ WindowManager:
         BoxLayout:
             orientation: 'horizontal'
             Image:
-                source: "images/—Pngtree—vector full battery icon_3773575.png"
+                source: "images/vecteezy_battery-charge-png-transparent_9394734.png"
             Label:
-                text: 'Battery 1'
+                id: per1
+                text: '60 %'
                 font_size: dp(20)
             Image:
-                source: "images/—Pngtree—vector full battery icon_3773575.png"
-                    
+                source: "images/vecteezy_battery-charge-png-transparent_9394734.png"
             Label:
-                text: 'Battery 2'
+                id: per2
+                text: '90 %'
                 font_size: dp(20)
         BoxLayout:
             orientation: 'horizontal'
-            padding: [100,0,100,0]
+            padding: [50,0,50,0]
             size_hint_x: 1
             size_hint_y: 0.4
             alignment: 'center'
@@ -145,7 +148,7 @@ WindowManager:
                 font_size: dp(28)
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x: 0.5
-                size_hint_y: 0.5
+                size_hint_y: 0.6
                 #on_press: root.btn()
                 on_release:
                     app.root.current = "second"
@@ -167,7 +170,7 @@ WindowManager:
     BoxLayout:
         id: room_layout
         orientation: 'vertical'
-        padding: [10,50,10,50]
+        padding: [10,50,10,100]
         spacing: 50
         allow_stretch: True
         size_hint_x: 1
@@ -187,7 +190,7 @@ WindowManager:
                 hint_text: 'Type room number'
                 font_size: sp(28)
                 size_hint_x: 1
-                size_hint_y: 0.4
+                size_hint_y: 0.5
                 halign: 'center'
 
         BoxLayout:
@@ -205,14 +208,14 @@ WindowManager:
                 hint_text: 'Type room number'
                 font_size: sp(28)
                 size_hint_x: 1
-                size_hint_y: 0.4
+                size_hint_y: 0.5
                 halign: 'center'
         
         BoxLayout:
             orientation: 'horizontal'
             padding: [100,0,100,0]
             size_hint_x: 1
-            size_hint_y: 0.4
+            size_hint_y: 0.5
             alignment: 'center'
 
             Button:
@@ -221,9 +224,9 @@ WindowManager:
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x: 0.5
                 size_hint_y: 0.5
-                #on_press: root.btn()
+                on_press: root.btn()
                 on_release:
-                    app.root.current = "fourth"
+                    #app.root.current = "fourth"
 
 <WrongdisWindow>
     name: "wrong"
@@ -286,6 +289,9 @@ WindowManager:
 <FourthWindow>
     name: "fourth"
     on_enter: root.start_timer()
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
     BoxLayout:
         orientation: 'vertical'
         halign: 'center'
@@ -374,31 +380,35 @@ WindowManager:
         source: "images/rm251-mind-08-f.jpg"
         fit_mode: "fill"
     BoxLayout:
-        padding: [10, 200, 10, 200]
+        padding: [10, 100, 10, 150]
         orientation: 'vertical'
         Label:
             text: 'Ready to go to the next destination?'
             font_size: dp(22)
         BoxLayout:
             orientation: 'horizontal'
+            padding: [50,50,50,50]
             Button:
                 text: 'Yes'
                 font_size: dp(22)
                 background_color: 0.235, 0.478, 0.537, 1
-                size_hint_y: 0.6
+                size_hint_y: 0.4
                 on_release:
                     app.root.current = "eighth"
             Button:
                 text: 'No'
                 font_size: dp(22)
                 background_color: 0.235, 0.478, 0.537, 1
-                size_hint_y: 0.6
+                size_hint_y: 0.4
                 on_release:
-                    app.root.current = "third"
+                    app.root.current = "second"
 
 <EighthWindow>
     name: "eighth"
     on_enter: root.start_timer()
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"
     BoxLayout:
         orientation: 'vertical'
         padding: [10, 10, 10, 10]
@@ -430,18 +440,20 @@ WindowManager:
         source: "images/rm251-mind-08-f.jpg"
         fit_mode: "fill"
     BoxLayout:
-        padding: [10, 200, 10, 200]
+        padding: [10, 100, 10, 100]
         orientation: 'vertical'
         Label:
             text: 'The Robot arrived successfully'
             font_size: dp(22)
         BoxLayout:
+            orientation: 'horizontal'
+            padding: [50,50,50,50]
             Button:
                 text: 'Return to main menu'
                 font_size: dp(22)
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x:
-                size_hint_y: 0.6
+                size_hint_y: 0.5
                 on_release:
                     app.root.current = "second"
 

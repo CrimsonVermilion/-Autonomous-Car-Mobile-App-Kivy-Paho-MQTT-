@@ -20,6 +20,7 @@ WindowManager:
     NinthWindow:
     InfoWindow:
     WrongdisWindow:
+    SignupWindow:
 
 
 <MainWindow>:
@@ -80,10 +81,25 @@ WindowManager:
                 size_hint_y: 0.3
                 halign: 'center'
 
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [80,0,80,0]
+            size_hint_x: 1
+            size_hint_y: 0.4
+            alignment: 'center'
+
+            Button:
+                text: 'New? Sign up'
+                font_size: dp(28)
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x: 0.5
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "signup" #if passw.text == "Gdn" else "main" if user_text.text == "Gamd" else "main"
 
         BoxLayout:
             orientation: 'horizontal'
-            padding: [100,0,100,0]
+            padding: [80,0,80,0]
             size_hint_x: 1
             size_hint_y: 0.4
             alignment: 'center'
@@ -93,9 +109,80 @@ WindowManager:
                 font_size: dp(28)
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x: 0.5
-                size_hint_y: 0.5
+                size_hint_y: 0.6
                 on_release:
                     app.root.current = "info" #if passw.text == "Gdn" else "main" if user_text.text == "Gamd" else "main"
+
+<SignupWindow>
+    name: "signup"
+    Image:
+        source: "images/rm251-mind-08-f.jpg"
+        fit_mode: "fill"       
+
+    BoxLayout:
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,120]
+        spacing: 50
+        allow_stretch: True
+        size_hint_x: 1
+
+        Label:
+            text: 'Welcome'
+            font_size: sp(50)
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'Username'
+                font_size: dp(30)
+                #halign: 'left'
+                #text_size: root.width-20, 20
+
+            TextInput:
+                id: user_input
+                multiline:False
+                hint_text: 'Type your user'
+                font_size: sp(28)
+                size_hint_x: 1
+                size_hint_y: 0.4
+                halign: 'center'
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Password'
+                #halign: 'left'
+                font_size: sp(30)
+                #text_size: root.width-20, 20
+                
+
+            TextInput:
+                id: passw
+                multiline:False
+                hint_text: 'Type your password'
+                password:False
+                font_size: sp(28)
+                size_hint_x: 1
+                size_hint_y: 0.4
+                halign: 'center'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: [80,0,80,0]
+            size_hint_x: 1
+            size_hint_y: 0.4
+            alignment: 'center'
+
+            Button:
+                text: 'Sign up'
+                font_size: dp(28)
+                background_color: 0.235, 0.478, 0.537, 1
+                size_hint_x: 0.5
+                size_hint_y: 0.6
+                on_release:
+                    app.root.current = "main" #if passw.text == "Gdn" else "main" if user_text.text == "Gamd" else "main"
 
 <InfoWindow>
     name: "info"
@@ -149,7 +236,7 @@ WindowManager:
                 font_size: dp(20)
         BoxLayout:
             orientation: 'horizontal'
-            padding: [100,0,100,0]
+            padding: [50,0,50,0]
             size_hint_x: 1
             size_hint_y: 0.5
             alignment: 'center'
@@ -159,7 +246,7 @@ WindowManager:
                 font_size: dp(28)
                 background_color: 0.235, 0.478, 0.537, 1
                 size_hint_x: 0.5
-                size_hint_y: 0.5
+                size_hint_y: 0.6
                 #on_press: root.btn()
                 on_release:
                     app.root.current = "second"

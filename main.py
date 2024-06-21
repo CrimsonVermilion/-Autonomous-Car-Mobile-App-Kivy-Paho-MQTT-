@@ -118,6 +118,10 @@ class SecondWindow(Screen):
 
 
 
+class SignupWindow(Screen):
+    pass
+
+
 class ThirdWindow(Screen):
     pass
 

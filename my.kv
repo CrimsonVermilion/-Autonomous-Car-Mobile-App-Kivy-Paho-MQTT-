@@ -132,41 +132,43 @@ WindowManager:
             font_size: sp(50)
 
         BoxLayout:
-            orientation: 'vertical'
+            orientation: 'horizontal'
 
             Label:
-                text: 'Username'
+                text: 'Username:'
+                size_hint_y: 0.3
                 font_size: dp(30)
                 #halign: 'left'
                 #text_size: root.width-20, 20
 
             TextInput:
-                id: user_input
+                id: new_user_input
                 multiline:False
                 hint_text: 'Type your user'
                 font_size: sp(28)
                 size_hint_x: 1
-                size_hint_y: 0.4
+                size_hint_y: 0.3
                 halign: 'center'
 
         BoxLayout:
-            orientation: 'vertical'
+            orientation: 'horizontal'
             Label:
-                text: 'Password'
+                text: 'Password:'
+                size_hint_y: 0.3
                 #halign: 'left'
                 font_size: sp(30)
                 #text_size: root.width-20, 20
                 
 
             TextInput:
-                id: passw
+                id: newpassw
                 multiline:False
                 hint_text: 'Type your password'
                 password:False
                 font_size: sp(28)
                 size_hint_x: 1
-                size_hint_y: 0.4
-                halign: 'center'
+                size_hint_y: 0.3
+                halign: 'left'
 
         BoxLayout:
             orientation: 'horizontal'

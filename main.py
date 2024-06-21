@@ -25,6 +25,10 @@ class SecondWindow(Screen):
     pass
 
 
+class SignupWindow(Screen):
+    pass
+
+
 class ThirdWindow(Screen):
     pass
 

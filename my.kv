@@ -305,19 +305,24 @@ WindowManager:
         source: "images/rm251-mind-08-f.jpg"
         fit_mode: "fill"
     BoxLayout:
+    BoxLayout:
         orientation: 'vertical'
         spacing: 10
         
-
+        BoxLayout:
         BoxLayout:
             Image:
                 source: "images/loading.png"
-                fit_mode: "fill"
+                size: dp(200), dp(200)
+                allow_stretch: True
+                
         
         BoxLayout:
             Label:
                 text: 'Searching for optimal ROUTE'
                 font_size: dp(25)
+        BoxLayout:
+    BoxLayout:
         
 
 
@@ -418,7 +423,7 @@ WindowManager:
                 size: dp(150), dp(150)  
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}  
                 Image:
-                    source: "images/pngegg.png"
+                    source: "images/loading.png"
                     allow_stretch: True
                     keep_ratio: True
         Label:
